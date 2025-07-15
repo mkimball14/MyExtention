@@ -1,28 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pie Chart Extension</title>
-  <!-- Load Tableau Extensions API from jsdelivr (unofficial CDN) -->
+  <title>Advanced Pie/Donut Chart Extension</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tableau Extensions API -->
   <script src="https://cdn.jsdelivr.net/gh/tableau/extensions-api/lib/tableau.extensions.1.latest.js"></script>
-  <!-- Chart.js for rendering pie charts -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Your extension logic -->
+  <!-- Your logic -->
   <script src="script.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f7f8fa;
+      color: #222;
+      margin: 0;
+      padding: 18px 24px 12px 24px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      margin: 0 0 8px 0;
+      color: #1865f2;
+    }
+    #controls {
+      display: flex;
+      gap: 12px;
+      align-items: flex-end;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    #controls label {
+      font-size: 0.96rem;
+      margin-right: 6px;
+      font-weight: 600;
+    }
+    select, input[type="text"] {
+      font-size: 0.95rem;
+      padding: 3px 7px;
+      border-radius: 6px;
+      border: 1px solid #b9bfc9;
+      margin-right: 8px;
+      background: #fff;
+    }
+    #chart-container {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 2px 12px rgba(80,80,90,0.08);
+      padding: 20px 8px 8px 8px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    #msg {
+      color: #bf2043;
+      margin-top: 10px;
+    }
+    .chart-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      text-align: center;
+      color: #222;
+    }
+    .chart-subtitle {
+      font-size: 0.92rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    #type-switch {
+      margin-left: 16px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Dynamic Pie Chart</h2>
-  <div>
+  <h2>Pie, Donut, or Bar Chart from Tableau Data</h2>
+  <div id="controls">
     <label>Worksheet:
       <select id="worksheet-select"></select>
     </label>
-    <label>Label Field:
+    <label>Label:
       <select id="label-select"></select>
     </label>
-    <label>Value Field:
+    <label>Value:
       <select id="value-select"></select>
     </label>
+    <label id="type-switch">
+      Chart Type:
+      <select id="chart-type">
+        <option value="pie">Pie</option>
+        <option value="doughnut">Donut</option>
+        <option value="bar">Bar</option>
+      </select>
+    </label>
+    <label>
+      Title:
+      <input type="text" id="user-title" placeholder="Chart title" size="13"/>
+    </label>
   </div>
-  <canvas id="pie-chart" width="400" height="400"></canvas>
+  <div id="chart-container">
+    <div class="chart-title" id="main-title"></div>
+    <div class="chart-subtitle" id="subtitle"></div>
+    <canvas id="pie-chart" width="400" height="320"></canvas>
+  </div>
   <div id="msg"></div>
 </body>
 </html>
