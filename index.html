@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Extension</title>
+  <title>Pie Chart Extension</title>
+  <!-- Load Tableau Extensions API from jsdelivr (unofficial CDN) -->
   <script src="https://cdn.jsdelivr.net/gh/tableau/extensions-api/lib/tableau.extensions.1.latest.js"></script>
+  <!-- Chart.js for rendering pie charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Your extension logic -->
   <script src="script.js"></script>
 </head>
 <body>
-  <h2>Hello from My Extension!</h2>
-  <div id="data-output"></div>
+  <h2>Dynamic Pie Chart</h2>
+  <div>
+    <label>Worksheet:
+      <select id="worksheet-select"></select>
+    </label>
+    <label>Label Field:
+      <select id="label-select"></select>
+    </label>
+    <label>Value Field:
+      <select id="value-select"></select>
+    </label>
+  </div>
+  <canvas id="pie-chart" width="400" height="400"></canvas>
+  <div id="msg"></div>
 </body>
 </html>
