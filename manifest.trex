@@ -4,14 +4,14 @@
     <default-locale>en_US</default-locale>
     <name resource-id="name"/>
     <description>Sample extension to interact with Tableau data</description>
-    <author name="Max Kimball" email="maxkimball14@gmail.com" organization="My Company" website="http://127.0.0.1:5500/"/>
+    <author name="Max Kimball" email="maxkimball14@gmail.com" organization="My Company" website="https://github.com/mkimball14"/>
     <min-api-version>1.0</min-api-version>
     <source-location>
-      <url>http://127.0.0.1:5500/index.html</url>
+      <url>https://mkimball14.github.io/MyExtention/index.html</url>
     </source-location>
-    <!-- <icon>Base64-Encoded ICON</icon> -->
+    <icon>iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==</icon>
     <permissions>
-      <permission>datasources</permission>
+      <permission>full data</permission>
     </permissions>
     <context-menu>
       <configure-context-menu-item />
