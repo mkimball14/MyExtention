@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest manifest-version="0.1" xmlns="http://www.tableau.com/xml/extension_manifest">
+  <dashboard-extension id="com.maxkimball.extensions.myfirst" extension-version="1.0.0">
+    <default-locale>en_US</default-locale>
+    <name resource-id="name"/>
+    <description>Sample extension to interact with Tableau data</description>
+    <author name="Max Kimball" email="maxkimball14@gmail.com" organization="My Company" website="http://127.0.0.1:5500/"/>
+    <min-api-version>1.0</min-api-version>
+    <source-location>
+      <url>http://127.0.0.1:5500/index.html</url>
+    </source-location>
+    <!-- <icon>Base64-Encoded ICON</icon> -->
+    <permissions>
+      <permission>datasources</permission>
+    </permissions>
+    <context-menu>
+      <configure-context-menu-item />
+    </context-menu>
+  </dashboard-extension>
+  <resources>
+    <resource id="name">
+      <text locale="en_US">My First Extension</text>
+    </resource>
+  </resources>
+</manifest>
